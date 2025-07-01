@@ -6,7 +6,8 @@ import pytz
 import requests
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, resources={r"/*": {"origins": "https://trivia-frontend-1mgj.onrender.com"}})
+
 
 TRIVIA_FILE = 'trivia_store.json'
 SUBMIT_FILE = 'submissions.json'
