@@ -30,13 +30,10 @@ def fetch_daily_questions():
     today = get_today_date()
 
     if today not in trivia_data:
-        response = requests.get('https://opentdb.com/api.php?amount=500&type=multiple')
+        response = requests.get('https://opentdb.com/api.php?amount=10&type=multiple&difficulty=easy,medium')
         if response.status_code == 200:
-            all_questions = response.json().get('results', [])
-            filtered = [q for q in all_questions if q['difficulty'] in ['easy', 'medium']]
-            trivia_data[today] = filtered[:10]
+            trivia_data[today] = response.json().get('results', [])
             save_json(TRIVIA_FILE, trivia_data)
-
 
     return trivia_data[today]
 
@@ -45,7 +42,7 @@ def get_questions(username):
     today = get_today_date()
     submissions = load_json(SUBMIT_FILE)
 
-    if username != 'evansallard' and submissions.get(today, []) and username in submissions[today]:
+    if username in submissions.get(today, []):
         return jsonify({'error': 'You have already played today.'}), 403
 
     questions = fetch_daily_questions()
@@ -65,13 +62,20 @@ def submit_score():
     if today not in submissions:
         submissions[today] = []
 
-    if username != 'evansallard' and username in submissions[today]:
+    if username in submissions[today]:
         return jsonify({'error': 'Already submitted today.'}), 403
 
     submissions[today].append(username)
     save_json(SUBMIT_FILE, submissions)
 
     return jsonify({'message': 'Score recorded successfully.'})
+
+@app.route('/check-username/<username>', methods=['GET'])
+def check_username(username):
+    today = get_today_date()
+    submissions = load_json(SUBMIT_FILE)
+    used_today = username in submissions.get(today, [])
+    return jsonify({'available': not used_today})
 
 @app.route('/')
 def home():
