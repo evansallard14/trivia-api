@@ -1,0 +1,124 @@
+{
+  "2025-07-01": [
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Entertainment: Music",
+      "question": "&quot;The Genius&quot; is the original and secondary name of which Wu-Tang Clan member?",
+      "correct_answer": "GZA",
+      "incorrect_answers": [
+        "Ghostface Killah",
+        "Ol&#039; Dirty Bastard",
+        "Raekwon the Chef"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Science &amp; Nature",
+      "question": "What are the smallest blood vessels in the human body?",
+      "correct_answer": "Capillaries",
+      "incorrect_answers": [
+        "Arterioles",
+        "Veinules",
+        "Lymphatics"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "Entertainment: Film",
+      "question": "What was the first James Bond film?",
+      "correct_answer": "Dr. No",
+      "incorrect_answers": [
+        "Goldfinger",
+        "From Russia With Love",
+        "Thunderball"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "Entertainment: Cartoon &amp; Animations",
+      "question": "In the 1993 Disney animated series &quot;Bonkers&quot;, what is the name of Bonker&#039;s second partner?",
+      "correct_answer": "Miranda Wright",
+      "incorrect_answers": [
+        "Dick Tracy",
+        "Eddie Valiant",
+        "Dr. Ludwig von Drake"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "Entertainment: Music",
+      "question": "What Led Zeppelin album contains &quot;Stairway to Heaven&quot;?",
+      "correct_answer": "Led Zeppelin IV",
+      "incorrect_answers": [
+        "Houses of the Holy",
+        "Physical Graffiti",
+        "Led Zeppelin III"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Entertainment: Video Games",
+      "question": "In the Portal series of games, who was the founder of Aperture Science?",
+      "correct_answer": "Cave Johnson",
+      "incorrect_answers": [
+        "GLaDOs",
+        "Wallace Breen",
+        "Gordon Freeman"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "History",
+      "question": "In 1720, England was in massive debt and became involved in the South Sea Bubble. Who was the main mastermind behind it?",
+      "correct_answer": "John Blunt",
+      "incorrect_answers": [
+        "Daniel Defoe",
+        "Robert Harley",
+        "John Churchill"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "History",
+      "question": "When did the Battle of the Somme begin?",
+      "correct_answer": "July 1st, 1916",
+      "incorrect_answers": [
+        "August 1st, 1916",
+        "July 2nd, 1916",
+        "June 30th, 1916"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Entertainment: Video Games",
+      "question": "Marvel vs Capcom 2: New age of Heroes was released in what year?",
+      "correct_answer": "2000",
+      "incorrect_answers": [
+        "2001",
+        "2003",
+        "1998"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "General Knowledge",
+      "question": "What is the closest planet to our solar system&#039;s sun?",
+      "correct_answer": "Mercury",
+      "incorrect_answers": [
+        "Mars",
+        "Jupiter",
+        "Earth"
+      ]
+    }
+  ]
+}
