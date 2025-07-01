@@ -42,8 +42,11 @@ def get_questions(username):
     today = get_today_date()
     submissions = load_json(SUBMIT_FILE)
 
-    if username in submissions.get(today, []):
-        return jsonify({'error': 'You have already played today.'}), 403
+    # Check if the user already submitted today
+    if today in submissions:
+        for entry in submissions[today]:
+            if isinstance(entry, dict) and entry.get("username") == username:
+                return jsonify({'error': 'You have already played today.'}), 403
 
     questions = fetch_daily_questions()
     return jsonify({'date': today, 'questions': questions})
@@ -62,20 +65,33 @@ def submit_score():
     if today not in submissions:
         submissions[today] = []
 
-    if username in submissions[today]:
-        return jsonify({'error': 'Already submitted today.'}), 403
+    # Check if the user already submitted today
+    for entry in submissions[today]:
+        if isinstance(entry, dict) and entry.get("username") == username:
+            return jsonify({'error': 'Already submitted today.'}), 403
 
-    submissions[today].append(username)
+    submissions[today].append({ "username": username, "score": score })
     save_json(SUBMIT_FILE, submissions)
 
     return jsonify({'message': 'Score recorded successfully.'})
 
-@app.route('/check-username/<username>', methods=['GET'])
-def check_username(username):
+@app.route('/today-score/<username>', methods=['GET'])
+def get_today_score(username):
     today = get_today_date()
-    submissions = load_json(SUBMIT_FILE)
-    used_today = username in submissions.get(today, [])
-    return jsonify({'available': not used_today})
+    if not os.path.exists(SUBMIT_FILE):
+        return jsonify({'score': None})
+
+    with open(SUBMIT_FILE, 'r') as f:
+        data = json.load(f)
+
+    if today not in data:
+        return jsonify({'score': None})
+
+    for entry in data[today]:
+        if isinstance(entry, dict) and entry.get("username") == username:
+            return jsonify({'score': entry["score"]})
+
+    return jsonify({'score': None})
 
 @app.route('/')
 def home():
